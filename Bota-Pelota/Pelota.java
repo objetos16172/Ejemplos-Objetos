@@ -22,8 +22,9 @@ public class Pelota
     // TAREA: Mover la pelota y hacer que rebote al llegar al borde
     public void muevete(Rectangle r)
     {
+        /*
         System.out.println("Mueve pelota..."); 
         System.out.println("Tamaño de la ventana: " +
-            r.getWidth() + ", " + r.getHeight());
+            r.getWidth() + ", " + r.getHeight());*/
     }
 }
