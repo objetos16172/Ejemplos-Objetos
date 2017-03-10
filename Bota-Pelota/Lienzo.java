@@ -9,7 +9,6 @@ public class Lienzo extends JPanel // implements KeyListener
     public Lienzo()
     {
         pelota = new Pelota(100, 100, 10);
-      
     }
     
     public void actua()

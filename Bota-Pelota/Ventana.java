@@ -9,57 +9,58 @@ public class Ventana extends JFrame
 {
     private Lienzo dibujo;
     private Timer tiempo;
-    
+
     public Ventana(int ancho, int alto)
     {
-        this.setSize(ancho, alto);
+        // Agregar el lienzo
         dibujo = new Lienzo();
-        //  dibujo.addKeyListener(dibujo);
         this.add(dibujo);
+
+        // Agregar el escuchador del teclado
         EscuchadorTeclado escuchaTeclado = new EscuchadorTeclado();
         this.addKeyListener(escuchaTeclado);
-        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        
+
+        // Agregar el escuchador del temporizador
         EscuchadorTiempo escuchaTiempo = new EscuchadorTiempo();
-        tiempo = new Timer(1000, escuchaTiempo);
+        tiempo = new Timer(100, escuchaTiempo);
         tiempo.start();
+        
+        this.setSize(ancho, alto);
+        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }
-    
+
     class EscuchadorTiempo implements ActionListener
     {
         @Override
         public void actionPerformed(ActionEvent e)
         {
-            //pelota.muevete(getBounds());
-            //lienzo.repaint();
             dibujo.actua();
         }
     }
-    
+
     class EscuchadorTeclado implements KeyListener
     {
         @Override
         public void keyPressed(KeyEvent e)
         {
             if (e.getKeyChar() == 'd')  {
-               tiempo.stop();
+                tiempo.stop();
             }
             else if (e.getKeyChar() == 'i')   {
                 tiempo.start();
             }
-      //      System.out.println("keyPressed: " + e.getKeyChar());
         }
-    
+
         @Override 
         public void keyReleased(KeyEvent e)
         {
-        //    System.out.println("keyReleased: " + e.getKeyChar());
+            //    System.out.println("keyReleased: " + e.getKeyChar());
         }
-        
+
         @Override 
         public void keyTyped(KeyEvent e)
         {
-      //      System.out.println("keyTyped: " + e.getKeyChar());
+            //      System.out.println("keyTyped: " + e.getKeyChar());
         }
     }
 }
