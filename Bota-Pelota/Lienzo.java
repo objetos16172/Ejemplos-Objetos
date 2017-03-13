@@ -20,6 +20,7 @@ public class Lienzo extends JPanel // implements KeyListener
     @Override
     public void paintComponent(Graphics g)
     {
-        pelota.dibujate(g);
+        super.paintComponent(g);        
+        pelota.dibujate(g); 
     }
 }
