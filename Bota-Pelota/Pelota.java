@@ -14,8 +14,17 @@ public class Pelota
         posx = x;
         posy = y;
         radio = r;
-        incx = 10;
-        incy = 10;
+        int aleatorioX = (int)(Math.random()*2);
+        if (aleatorioX == 0) {
+            aleatorioX = -1;
+        }
+        int aleatorioY = (int)(Math.random()*2);
+        if (aleatorioY == 0) {
+            aleatorioY = -1;
+        }
+        System.out.println(aleatorioX + ", " + aleatorioY);
+        incx = aleatorioX*10;
+        incy = aleatorioY*10;
     }
     
     public void dibujate(Graphics g)
@@ -25,13 +34,13 @@ public class Pelota
     
     public void muevete(Rectangle r)
     {
-        posx += incx;
-        posy += incy;
-        if (posx > r.getWidth()-radio*2 || posx < radio*2)    {
+        if (posx+incx > r.getWidth() || posx < 0)    {
             incx = -incx;
         }
-        if (posy > r.getHeight()-radio*2 || posy < radio*2) {
+        if (posy+incy > r.getHeight() || posy < 0) {
             incy = -incy;
         }
+        posx += incx;
+        posy += incy;
     }
 }
